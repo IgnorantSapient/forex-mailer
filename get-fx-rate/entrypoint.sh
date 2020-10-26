@@ -3,10 +3,12 @@
 #Executing with sh -c helps in catching errors inside Github Actions,
 #If one runs commnds without it, errors arent spit out.
 sh -c "echo The Base Currency is $INPUT_BASE_CURRENCY"
-sh -c "apt-get update"
-sh -c "apt-get install -y jq"
-sh -c "apt-get install -y curl"
+# sh -c "apt-get update"
+# sh -c "apt-get install -y jq"
+# sh -c "apt-get install -y curl"
 
+sh -c "apk add curl"
+sh -c "apk add jq" 
 sh -c 'curl "https://api.exchangeratesapi.io/latest"'
 # sh -c curl "https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY" > resp.json
 # sh -c "cat resp.json | jq '.rates.INR' > fxRate.json"
