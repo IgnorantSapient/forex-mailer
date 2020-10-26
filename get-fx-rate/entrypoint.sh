@@ -16,6 +16,7 @@
 
 #apk add curl
 apk add jq
+sh -c "curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY"
 sh -c "curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY > resp.json"
 cat resp.json | jq '.rates.INR' > fxRate.json
 cat fxRate.json
