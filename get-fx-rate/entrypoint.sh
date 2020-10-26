@@ -16,18 +16,25 @@
 
 #apk add curl
 #apk add jq
-sh -c "apt-get update"
-sh -c "apt-get install -y jq"
+#sh -c "apt-get update"
+#sh -c "apt-get install -y jq"
 #sh -c "apt-get install -y curl"
 
-curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY
-sh -c "curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY > resp.json"
-cat resp.json | jq '.rates.INR' > fxRate.json
-cat fxRate.json
-FX_RATE=`cat fxRate.json`;echo 1 CAD = $FX_RATE INR
-if [ $? -eq 0 ]; then
-   echo OK
-else
-   echo FAIL
-   exit 1;
-fi
+# curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY
+# sh -c "curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY > resp.json"
+# cat resp.json | jq '.rates.INR' > fxRate.json
+# cat fxRate.json
+# FX_RATE=`cat fxRate.json`;echo 1 CAD = $FX_RATE INR
+# if [ $? -eq 0 ]; then
+#    echo OK
+# else
+#    echo FAIL
+#    exit 1;
+# fi
+
+#!/bin/sh -l
+
+sh -c "echo The Base Currency is $INPUT_BASE_CURRENCY"
+#API_RESPONSE=$(curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY\&symbols=INR)
+sh -c curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY\&symbols=INR
+#sh -c "echo $API_RESPONSE"
