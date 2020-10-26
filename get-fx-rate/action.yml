@@ -1,0 +1,17 @@
+name: "FX action"
+description: "Output FX rate"
+author: "octocat@github.com"
+
+inputs:
+  BASE_CURRENCY:
+    description: "Base Currency"
+    required: true
+    default: "CAD"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "mic"
+  color: "purple"
