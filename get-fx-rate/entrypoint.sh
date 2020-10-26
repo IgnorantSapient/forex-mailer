@@ -7,9 +7,10 @@ sh -c "apt-get update"
 sh -c "apt-get install -y jq"
 sh -c "apt-get install -y curl"
 
-sh -c curl "https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY" > resp.json
-sh -c "cat resp.json | jq '.rates.INR' > fxRate.json"
-sh -c "cat resp.json"
-sh -c "cat fxRate.json"
-sh -c 'FX_RATE=`cat fxRate.json`;echo 1 CAD = $FX_RATE INR'
+sh -c 'curl "https://api.exchangeratesapi.io/latest"'
+# sh -c curl "https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY" > resp.json
+# sh -c "cat resp.json | jq '.rates.INR' > fxRate.json"
+# sh -c "cat resp.json"
+# sh -c "cat fxRate.json"
+# sh -c 'FX_RATE=`cat fxRate.json`;echo 1 CAD = $FX_RATE INR'
 
