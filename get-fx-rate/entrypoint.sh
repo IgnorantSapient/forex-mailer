@@ -20,7 +20,7 @@ sh -c "curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY > r
 sh -c "cat resp.json | jq '.rates.INR' > fxRate.json"
 sh -c "cat fxRate.json"
 sh -c 'FX_RATE=`cat fxRate.json`;echo 1 CAD = $FX_RATE INR'
-if <condition> ; then
+if $? ; then
   echo "Game over!"
   exit 1
 fi
