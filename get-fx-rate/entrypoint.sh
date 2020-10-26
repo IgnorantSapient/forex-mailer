@@ -38,7 +38,7 @@ apt-get install -y jq
 apt-get install -y curl
 echo The Base Currency is $INPUT_BASE_CURRENCY
 #API_RESPONSE=$(curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY\&symbols=INR)
-FX_JSON=$(https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY\&symbols=INR)
-echo $FX_JSON
+ipinfo=$(curl ipinfo.io/8.8.8.8)
+echo $ipinfo
 #curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY&symbols=INR
 #sh -c "echo $API_RESPONSE"
