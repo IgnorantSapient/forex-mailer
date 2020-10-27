@@ -10,3 +10,4 @@ jobs:
       - uses: ./get-fx-rate
         with:
           BASE_CURRENCY: "CAD"
+          TARGET_CURRENCY: "INR"

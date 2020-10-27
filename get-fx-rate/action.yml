@@ -3,10 +3,16 @@ description: "Output FX rate"
 author: "octocat@github.com"
 
 inputs:
+
   BASE_CURRENCY:
     description: "Base Currency"
     required: true
     default: "CAD"
+  
+  TARGET_CURRENCY:
+    description: "Target Currency"
+    required: true
+    default: "INR"
 
 runs:
   using: "docker"
