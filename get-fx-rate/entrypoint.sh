@@ -41,3 +41,4 @@ curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY\&symbols=I
 #curl https://api.exchangeratesapi.io/latest?base=$INPUT_BASE_CURRENCY&symbols=INR
 #sh -c "echo $API_RESPONSE"
 
+sh -c "echo The Base Currency is $INPUT_BASE_CURRENCY"
