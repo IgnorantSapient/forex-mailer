@@ -1,0 +1,24 @@
+{
+  "name": "exchange-rate-mailer",
+  "version": "1.0.0",
+  "description": "Sends email of the exchange rate of the CAD - INR currency pair on a schedule (Github action workout)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/123aswin123/exchange-rate-mailer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/123aswin123/exchange-rate-mailer/issues"
+  },
+  "homepage": "https://github.com/123aswin123/exchange-rate-mailer#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  }
+}
