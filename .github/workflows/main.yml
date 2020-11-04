@@ -3,9 +3,6 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x]
     name: A job to say hello
     steps:
       # To use this repository's private action,
