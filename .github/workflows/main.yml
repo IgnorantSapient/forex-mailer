@@ -1,13 +1,22 @@
+on: [push]
 
-name: Forex Emailer
-on: push
 jobs:
-  build:
-    name: Get Forex rate
+  hello_world_job:
     runs-on: ubuntu-latest
+    name: A job to say hello
     steps:
-      - uses: actions/checkout@v1
-      - uses: ./get-fx-rate
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Packages
+        run: npm install
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
+        id: hello
         with:
-          BASE_CURRENCY: "CAD"
-          TARGET_CURRENCY: "INR"
+          who-to-greet: "Mona the Octocat!!!!!"
+      # Use the output from the `hello` step
+      - name: Get the exchange rate
+        run: echo "The exchange rate is ${{ steps.hello.outputs.exchange-rate }}"
+        
