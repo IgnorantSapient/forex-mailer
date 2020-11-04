@@ -1,15 +1,23 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
+const core = require("@actions/core");
+const github = require("@actions/github");
+const fetch = require("node-fetch");
+
+const getExchangeRate = async () => {
+  const response = await fetch(
+    "https://api.exchangeratesapi.io/latest?base=CAD&symbols=INR"
+  );
+  const data = await response.json();
+  return data;
+};
+
+const setResultsToGithubOutput = (response) => {
+  const exchangeRate = response.rates.INR;
+  console.log(response);
+  core.setOutput("exchangeRate", exchangeRate);
+};
 
 try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+  getExchangeRate().then((response) => setResultsToGithubOutput(response));
 } catch (error) {
   core.setFailed(error.message);
 }
