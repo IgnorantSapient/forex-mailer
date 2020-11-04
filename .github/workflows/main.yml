@@ -19,3 +19,4 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the exchange rate
         run: echo "The exchange rate is ${{ steps.hello.outputs.exchange-rate }}"
+        
