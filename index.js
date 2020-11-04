@@ -13,7 +13,7 @@ const getExchangeRate = async () => {
 const setResultsToGithubOutput = (response) => {
   const exchangeRate = response.rates.INR;
   console.log(response);
-  core.setOutput("exchangeRate", exchangeRate);
+  core.setOutput("exchange-rate", exchangeRate);
 };
 
 try {
