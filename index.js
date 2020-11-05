@@ -3,8 +3,10 @@ const github = require("@actions/github");
 const fetch = require("node-fetch");
 
 const getExchangeRate = async () => {
+  const baseCurrency = core.getInput('base-currency');
+  const targetCurrency = core.getInput('target-currency');
   const response = await fetch(
-    "https://api.exchangeratesapi.io/latest?base=CAD&symbols=INR"
+    `https://api.exchangeratesapi.io/latest?base=${baseCurrency}&symbols=${targetCurrency}`
   );
   const data = await response.json();
   return data;
