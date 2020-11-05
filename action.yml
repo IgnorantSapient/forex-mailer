@@ -5,7 +5,7 @@ inputs:
     description: 'The name of the base currency from exchangeratesapi.io'
     required: true
     default: 'CAD'
-    target-currency:  # id of input
+  target-currency:  # id of input
     description: 'The name of the target currency from exchangeratesapi.io'
     required: true
     default: 'INR'
