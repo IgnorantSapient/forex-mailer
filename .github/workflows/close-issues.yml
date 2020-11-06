@@ -7,9 +7,7 @@ jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/stale@v3
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        only-labels: 'fxRate'
-        days-before-close: 0
-        stale-issue-message: 'Going to close'
+        - uses: lee-dohm/close-matching-issues@v2
+          with:
+            query: 'label:fxRate'
+            token: ${{ secrets.GITHUB_TOKEN }}
