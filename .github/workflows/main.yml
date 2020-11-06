@@ -1,7 +1,9 @@
 on: 
-  push:
   schedule:
     -cron: '0 14 * * *'
+  push:
+    branches:
+        - master
 
 jobs:
   fx_rate_job:
