@@ -20,3 +20,13 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the exchange rate
         run: echo "The exchange rate is ${{ steps.fxrate.outputs.exchange-rate }}"
+      - uses: maxkomarychev/oction-create-issue@v0.7.1
+        id: my_step_id
+        name: Add issue
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "1 CAD = ${{ steps.fxrate.outputs.exchange-rate }} INR"
+      - name: Print outputs
+        run: |
+          echo ${{ steps.my_step_id.outputs.id }}
+          echo ${{ steps.my_step_id.outputs.number }}
