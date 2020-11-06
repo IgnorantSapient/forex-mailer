@@ -1,9 +1,9 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  fx_rate_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job fetch fx rate
     steps:
       # To use this repository's private action,
       # you must check out the repository
@@ -21,12 +21,13 @@ jobs:
       - name: Get the exchange rate
         run: echo "The exchange rate is ${{ steps.fxrate.outputs.exchange-rate }}"
       - uses: maxkomarychev/oction-create-issue@v0.7.1
-        id: my_step_id
+        id: add_issue
         name: Add issue
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "1 CAD = ${{ steps.fxrate.outputs.exchange-rate }} INR"
+          labels: fxRate
       - name: Print outputs
         run: |
-          echo ${{ steps.my_step_id.outputs.id }}
-          echo ${{ steps.my_step_id.outputs.number }}
+          echo ${{ steps.add_issue.outputs.id }}
+          echo ${{ steps.add_issue.outputs.number }}
