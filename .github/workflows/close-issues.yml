@@ -12,3 +12,4 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         only-labels: 'fxRate'
         days-before-close: 0
+        stale-issue-message: 'Going to close'
