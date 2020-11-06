@@ -2,9 +2,10 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const fetch = require("node-fetch");
 
+const baseCurrency = core.getInput('base-currency');
+const targetCurrency = core.getInput('target-currency');
+
 const getExchangeRate = async () => {
-  const baseCurrency = core.getInput('base-currency');
-  const targetCurrency = core.getInput('target-currency');
   const response = await fetch(
     `https://api.exchangeratesapi.io/latest?base=${baseCurrency}&symbols=${targetCurrency}`
   );
@@ -13,9 +14,9 @@ const getExchangeRate = async () => {
 };
 
 const setResultsToGithubOutput = (response) => {
-  const exchangeRate = response.rates.INR;
+  const exchangeRate = parseFloat(response.rates[targetCurrency]);
   console.log(response);
-  core.setOutput("exchange-rate", exchangeRate);
+  core.setOutput("exchange-rate", exchangeRate.toFixed(2));
 };
 
 try {
