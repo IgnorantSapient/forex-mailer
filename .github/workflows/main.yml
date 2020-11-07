@@ -28,7 +28,7 @@ jobs:
         name: Add issue
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: "1 CAD = ${{ steps.fxrate.outputs.exchange-rate }} INR"
+          title: "1 CAD: ${{ steps.fxrate.outputs.exchange-rate }} INR"
           labels: fxRate
       - name: Print outputs
         run: |
