@@ -8,8 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     name: A job fetch fx rate
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install Packages
@@ -20,7 +18,6 @@ jobs:
         with:
           base-currency: "CAD"
           target-currency: "INR"
-      # Use the output from the `hello` step
       - name: Get the exchange rate
         run: echo "The exchange rate is ${{ steps.fxrate.outputs.exchange-rate }}"
       - uses: maxkomarychev/oction-create-issue@v0.7.1
